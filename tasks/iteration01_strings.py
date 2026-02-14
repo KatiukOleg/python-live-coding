@@ -38,7 +38,7 @@ def is_palindrome(string: str) -> bool:
         - Ignore spaces and case.
 
     Approach:
-        - Normaloize -> compare with reversed.    
+        - Normalize -> compare with reversed.    
 
     Complexity:
         - Time: 0(n)
@@ -47,7 +47,34 @@ def is_palindrome(string: str) -> bool:
     normalized = string.lower().replace(" ", "")
     return normalized == normalized[::-1]
 
+def first_unique_char(string: str) -> int:
+    """
+    Return the index of the first non-repeating character in string.
+    If none exists, return -1.
+    
+    Clarify:
+        - Return index from original string.
+        - Empty string -> -1
+
+    Approach:
+        - Count chars, then scan for first count == 1.    
+
+    Complexity:
+        - Time: 0(n)
+        - Space: 0(k)
+    """
+    if not string:
+        return -1
+
+    counts = Counter(string)
+    print(counts)
+    
+    for i, ch in enumerate(string):
+        print(i, ch)
+        if counts[ch] == 1:
+            return i
+    return -1 
 
 
 if __name__ == "__main__":
-    print(reverse_words("Hello World!"))
+    print(first_unique_char("loveleetcode"))
