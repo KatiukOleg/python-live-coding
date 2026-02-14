@@ -30,6 +30,23 @@ def reverse_words(sentence: str) -> str:
     words = sentence.split()
     return " ".join(reversed(words))    
 
+def is_palindrome(string: str) -> bool:
+    """
+    Check if string is a palindrome ignoring spaces and case.
+    
+    Clarify:
+        - Ignore spaces and case.
+
+    Approach:
+        - Normaloize -> compare with reversed.    
+
+    Complexity:
+        - Time: 0(n)
+        - Space: 0(n)
+    """
+    normalized = string.lower().replace(" ", "")
+    return normalized == normalized[::-1]
+
 
 
 if __name__ == "__main__":
